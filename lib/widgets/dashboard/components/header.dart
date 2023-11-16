@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import 'package:responsive_app_livestream/controller/controller.dart';
+import 'package:responsive_app_livestream/util/responsive.dart';
 
 import '../../../constant/constants.dart';
 
@@ -12,17 +15,17 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // if (!Responsive.isDesktop(context))
-        //   IconButton(
-        //     icon: const Icon(Icons.menu,color: Colors.black),
-        //     onPressed: context.read<MenuAppController>().controlMenu,
-        //   ),
-        // if (!Responsive.isMobile(context))
-        Text(
-          "Dashboard",
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
-        const Spacer(flex: 2),
+        if (!Responsive.isDesktop(context))
+          IconButton(
+            icon: const Icon(Icons.menu, color: Colors.black),
+            onPressed: context.read<MenuAppController>().controlMenu,
+          ),
+        if (!Responsive.isMobile(context))
+          Text(
+            "Dashboard",
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+        SizedBox(width: Responsive.isMobile(context) ? 8 : 32),
         const Expanded(child: SearchField()),
         const ProfileCard()
       ],
@@ -55,10 +58,11 @@ class ProfileCard extends StatelessWidget {
             height: 38,
           ),
           // Hide it on Mobile
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-            child: Text("Subreen Adam"),
-          ),
+          if (!Responsive.isMobile(context))
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+              child: Text("Subreen Adam"),
+            ),
           const Icon(
             Icons.keyboard_arrow_down,
             color: Colors.black,

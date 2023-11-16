@@ -1,6 +1,6 @@
 # responsive_app_livestream
 
-A new Flutter project.
+https://www.youtube.com/watch?v=nkCj8IERfDo
 
 ## Getting Started
 

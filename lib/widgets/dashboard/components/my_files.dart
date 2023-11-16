@@ -41,7 +41,18 @@ class MyFiles extends StatelessWidget {
         // childAspectRatio: _size.width < 650 ? 1.3 : 1,
         // [Desktop]
         // childAspectRatio: _size.width < 1400 ? 1.1 : 1.4,
-        const FileInfoCardGridView()
+        const Responsive(
+          mobile: FileInfoCardGridView(
+            crossAxisCount: 2,
+            childAspectRatio: 1.5,
+          ),
+          desktop: FileInfoCardGridView(
+            crossAxisCount: 4,
+          ),
+          tablet: FileInfoCardGridView(
+            crossAxisCount: 3,
+          ),
+        )
       ],
     );
   }
