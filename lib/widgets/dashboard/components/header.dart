@@ -22,7 +22,7 @@ class Header extends StatelessWidget {
           ),
         if (!Responsive.isMobile(context))
           Text(
-            "Dashboard",
+            "Dashboard IR",
             style: Theme.of(context).textTheme.titleLarge,
           ),
         SizedBox(width: Responsive.isMobile(context) ? 8 : 32),
